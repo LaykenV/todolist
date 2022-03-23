@@ -9,6 +9,45 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    
+   <div class="container">
+       <header>
+           <div class="headertext">Todo List</div>
+           <button class="dropbutton">Open/Close Menu</button>
+       </header>
+       <main>
+           <div class="dropdown">
+                <div class="dates">
+                    <div class="dropdownbutton" id="alldates">All Tasks</div>
+                    <div class="dropdownbutton" id="todaydate">Today's Tasks</div>
+                    <div class="dropdownbutton" id="thisweek">This Week's Tasks</div>
+                </div>
+                <div class="projects">
+                    <div class="projectselector">
+                        <p>Projects:</p>
+                        <div class="dropdownbutton" id="exampleproject">Example Project</div>
+                    </div>
+                    <button class="dropdownbutton" id="addproject"><span>+</span>Add Project</button>
+                </div>
+           </div>
+           <div class="tasksmenu">
+                <div class="tasklist">
+                    <div class="task" id="exampletask">
+                        <button class="taskbutton"></button>
+                        <p class="taskdesc">Example Task</p>
+                        <p class="taskdate">Due Date:</p>
+                        <button class="taskdelete">Delete</button>
+                    </div>
+                    <div class="task" id="exampletask2">
+                        <button class="taskbutton"></button>
+                        <p class="taskdesc">Example Task 2</p>
+                        <p class="taskdate">Due Date:</p>
+                        <button class="taskdelete">Delete</button>
+                    </div>
+                </div>
+                <button class="dropdownbutton" id="addtask"><span>+</span>Add Task</button>
+           </div>
+       </main>
+       <footer>Copyright © 2022 LaykenV.dev</footer>
+   </div>
 </body>
 </html>

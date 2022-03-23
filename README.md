@@ -1,1 +1,1 @@
-# todolist
+Creating a to do list using HTML, CSS, and Javascript. 
