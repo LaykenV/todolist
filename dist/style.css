@@ -148,6 +148,46 @@ footer {
     padding: .2rem;
 }
 
+.taskpopup {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskpopupcont {
+    height: 50%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#taskform {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    background-color: blueviolet;
+}
+
+#addprojectform {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+#addpf {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: .4rem;
+}
+
 .gone {
-    display: none;
+    display: none !important;
 }

@@ -24,30 +24,63 @@
                 <div class="projects">
                     <div class="projectselector">
                         <p>Projects:</p>
-                        <div class="dropdownbutton" id="exampleproject">Example Project</div>
                     </div>
                     <button class="dropdownbutton" id="addproject"><span>+</span>Add Project</button>
+                    <div class="dropdownbutton" id="addprojectform">
+                        <form action="" method="get" id="addpf">
+                            <label for="projectname">Project name:</label>
+                            <input type="text"
+                            name="projectname"
+                            id="projectname"
+                            required>
+                            <button type="button" value="submit" id="projectsubmit">Create</button>
+                        </form>
+                        
+                        <button id="projectcancel">X</button>
+                    </div>
                 </div>
            </div>
            <div class="tasksmenu">
                 <div class="tasklist">
-                    <div class="task" id="exampletask">
-                        <button class="taskbutton"></button>
-                        <p class="taskdesc">Example Task</p>
-                        <p class="taskdate">Due Date:</p>
-                        <button class="taskdelete">Delete</button>
-                    </div>
-                    <div class="task" id="exampletask2">
-                        <button class="taskbutton"></button>
-                        <p class="taskdesc">Example Task 2</p>
-                        <p class="taskdate">Due Date:</p>
-                        <button class="taskdelete">Delete</button>
-                    </div>
+                    
                 </div>
                 <button class="dropdownbutton" id="addtask"><span>+</span>Add Task</button>
            </div>
        </main>
        <footer>Copyright © 2022 LaykenV.dev</footer>
+       <section class="taskpopup">
+            <div class="taskpopupcont">
+                <form action="" id="taskform" method="get">
+                    <label for="taskname">Name:</label>
+                    <input 
+                        type="text" 
+                        id="taskname" 
+                        name="taskname" 
+                        placeholder="Name of task" 
+                        required>
+                    <label for="description">Description:</label>
+                    <input 
+                        type="text" 
+                        name="description" 
+                        id="description"
+                        placeholder="Describe task">
+                    <label for="duedate">Due date:</label>
+                    <input 
+                        type="date"
+                        id="duedate"
+                        name="duedate"
+                        required>
+                    <label for="priority" id="taskpriority">
+                        <input type="radio" id="highpriority" name="priority" value="highpriority">
+                        High priority
+                        <input type="radio" id="lowpriority" name="priority" value="lowpriority">
+                        Low priority
+                    </label>
+                    <button type="button" value="submit" id="submit">Add Task</button>
+
+                </form>
+            </div>
+       </section>
    </div>
 </body>
 </html>
