@@ -50,7 +50,7 @@ main {
     align-items: center;
 }
 
-.dropdownbutton {
+.dropdownbutton, .projectlistitem {
     width: 12rem;
     background-color: white;
     height: 2rem;

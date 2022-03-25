@@ -1,8 +1,8 @@
-import { showProjects, showTasks } from "./dom";
+import { showProjects, showTasks, allTasks, updateProjects, kk} from "./dom";
 import { project, task } from "./factories";
+import {tasks} from "../index";
 
-const addTask = function() {
-    let tasks = [];
+const addTask = function(arr) {
     const Addbtn = document.querySelector("#addtask");
     const newName = document.querySelector("#taskname");
     const newDesc = document.querySelector("#description");
@@ -23,15 +23,13 @@ const addTask = function() {
     const makeTask = new task(nameInput, descInput, dateInput, priorityInput);
     console.log(makeTask);
     popup.classList.add("gone");
-    tasks.push(makeTask);
-    console.log(tasks);
-    showTasks(tasks, makeTask);
+    arr.push(makeTask);
+    console.log(arr);
+    showTasks(makeTask);
     })
-    return tasks;
 }
 
-const addProject = function() {
-    let projects = [];
+const addProject = function(arr) {
     const addProjectBtn = document.querySelector("#addproject");
     const projectName = document.querySelector("#projectname");
     const addProjectPopup = document.querySelector("#addprojectform");
@@ -52,11 +50,10 @@ const addProject = function() {
         console.log(makeProject);
         addProjectBtn.classList.remove("gone");
         addProjectPopup.classList.add("gone");
-        projects.push(makeProject);
-        console.log(projects);
         showProjects(makeProject);
+        arr.push(makeProject);
+        kk(tasks);
     })
-    return projects;
 }
 
 export {addTask, addProject};
