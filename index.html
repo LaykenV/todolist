@@ -19,7 +19,7 @@
                 <div class="dates">
                     <div class="dropdownbutton" id="alldates">All Tasks</div>
                     <div class="dropdownbutton" id="todaydate">Today's Tasks</div>
-                    <div class="dropdownbutton" id="thisweek">This Week's Tasks</div>
+                    
                 </div>
                 <div class="projects">
                     <div class="projectselector">
@@ -41,9 +41,7 @@
                 </div>
            </div>
            <div class="tasksmenu">
-                <div class="tasklist">
-                    
-                </div>
+                <div class="tasklist"></div>
                 <button class="dropdownbutton" id="addtask"><span>+</span>Add Task</button>
            </div>
        </main>
@@ -58,12 +56,12 @@
                         name="taskname" 
                         placeholder="Name of task" 
                         required>
-                    <label for="description">Description:</label>
+                    <label for="description">Add to project:</label>
                     <input 
                         type="text" 
                         name="description" 
                         id="description"
-                        placeholder="Describe task">
+                        placeholder="Project name">
                     <label for="duedate">Due date:</label>
                     <input 
                         type="date"
