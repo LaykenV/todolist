@@ -1,6 +1,6 @@
-import { showProjects, showTasks, allTasks, updateProjects, kk} from "./dom";
+import { showProjects, showTasks, allTasks, updateProjects, kk, allProjects} from "./dom";
 import { project, task } from "./factories";
-import {tasks} from "../index";
+import {tasks, setLocalTasks, setLocalProjects} from "../index";
 
 const addTask = function(arr) {
     const Addbtn = document.querySelector("#addtask");
@@ -25,7 +25,8 @@ const addTask = function(arr) {
     popup.classList.add("gone");
     arr.push(makeTask);
     console.log(arr);
-    showTasks(makeTask);
+    showTasks(makeTask, arr);
+    setLocalTasks(arr);
     })
 }
 
@@ -50,9 +51,11 @@ const addProject = function(arr) {
         console.log(makeProject);
         addProjectBtn.classList.remove("gone");
         addProjectPopup.classList.add("gone");
-        showProjects(makeProject);
+        showProjects(makeProject, arr);
         arr.push(makeProject);
+        console.log(arr);
         kk(tasks);
+        setLocalProjects(arr);
     })
 }
 

@@ -1,4 +1,5 @@
-import { task } from "./factories";
+import { task} from "./factories";
+import { setLocalProjects, setLocalTasks } from "../index";
 
 const dropMenu = function() {
     const dropDownBtn = document.querySelector(".dropbutton");
@@ -10,18 +11,47 @@ const dropMenu = function() {
     });
 }
 
-const showProjects = function(arr) {
+const showProjects = function(project, arr) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("projectlistitem");
-     newDiv.textContent = `${arr.title}`;
+    newDiv.setAttribute("data-index", (arr.length - 1));
+    const newDivText = document.createElement("p");
+    newDivText.classList.add("projectlistitemtext");
+    newDivText.textContent = `${project.title}`;
+    const delBtn = document.createElement("button");
+    delBtn.classList.add("projectdelbtn");
+    delBtn.textContent = "X";
     const projectList = document.querySelector(".projectselector");
     projectList.appendChild(newDiv);
+    newDiv.appendChild(newDivText);
+    newDiv.appendChild(delBtn);
 }
 
-const showTasks = function(taskk) {
+const allProjects = function(arr) {
+    const projectList = document.querySelector(".projectselector");
+    for (let i = 0; i < arr.length; i++) {
+        const element = arr[i];
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("projectlistitem");
+        newDiv.setAttribute("data-index", i);
+        const newDivText = document.createElement("p");
+        newDivText.classList.add("projectlistitemtext");
+        newDivText.textContent = element.title;
+        const delBtn = document.createElement("button");
+        delBtn.classList.add("projectdelbtn");
+        delBtn.textContent = "X";
+        const projectList = document.querySelector(".projectselector");
+        projectList.appendChild(newDiv);
+        newDiv.appendChild(newDivText);
+        newDiv.appendChild(delBtn);
+    }
+}
+
+const showTasks = function(taskk, arr) {
     const taskList = document.querySelector(".tasklist");
     const newDiv = document.createElement("div");
     newDiv.classList.add("task");
+    newDiv.setAttribute("data-index", (arr.length - 1));
     const newBtn = document.createElement("button");
     newBtn.classList.add("taskbutton");
     const newTaskName = document.createElement("p");
@@ -44,6 +74,7 @@ const showTasks = function(taskk) {
 
 const allTasks = function(arr) {
     const taskList = document.querySelector(".tasklist");
+    console.log(arr);
     for (let i = 0; i < arr.length; i++) {
         const item = document.querySelector(".tasklist");
         if (!item.innerHTML == "") {
@@ -55,6 +86,7 @@ const allTasks = function(arr) {
         const element = arr[i];
         const newDiv = document.createElement("div");
         newDiv.classList.add("task");
+        newDiv.setAttribute("data-index", i);
         const newBtn = document.createElement("button");
         newBtn.classList.add("taskbutton");
         const newTaskName = document.createElement("p");
@@ -86,6 +118,8 @@ const todaysTasks = function(arr) {
     let year = date.getFullYear();
     let fullDate = `${year}-${month}-${day}`;
     const taskList = document.querySelector(".tasklist");
+    console.log("todaystasksworking");
+    console.log(arr);
     for (let i = 0; i < arr.length; i++) {
         const item = document.querySelector(".tasklist");
         if (!item.innerHTML == "") {
@@ -101,6 +135,7 @@ const todaysTasks = function(arr) {
         if (element.dueDate == fullDate) {
             const newDiv = document.createElement("div");
             newDiv.classList.add("task");
+            newDiv.setAttribute("data-index", i);
             const newBtn = document.createElement("button");
             newBtn.classList.add("taskbutton");
             const newTaskName = document.createElement("p");
@@ -131,7 +166,7 @@ const updateProjects = function () {
 }
 
 const kk = function (arr) {
-    let projectItem = document.querySelectorAll(".projectlistitem");
+    let projectItem = document.querySelectorAll(".projectlistitemtext");
     const taskList = document.querySelector(".tasklist");
     updateProjects();
     for (let i = 0; i < projectItem.length; i++) {
@@ -152,6 +187,7 @@ const kk = function (arr) {
                     const taskList = document.querySelector(".tasklist");
                     const newDiv = document.createElement("div");
                 newDiv.classList.add("task");
+                newDiv.setAttribute("data-index", i);
                 const newBtn = document.createElement("button");
                 newBtn.classList.add("taskbutton");
                 const newTaskName = document.createElement("p");
@@ -177,4 +213,28 @@ const kk = function (arr) {
     })
     
 }}
-export {dropMenu, showProjects, showTasks, allTasks, todaysTasks, kk, updateProjects};
+
+function removeTask(event, arr) {
+    if (event.target.className === "taskbutton") {
+        const index = event.target.parentElement.getAttribute("data-index");
+        console.log(index);
+        arr.splice(index, 1);
+        event.target.parentElement.parentElement.removeChild(event.target.parentElement);
+        console.log(arr);
+        setLocalTasks(arr);
+    }
+}
+
+function removeProject(event, arr) {
+    if (event.target.className === "projectdelbtn") {
+        const index = event.target.parentElement.getAttribute("data-index");
+        console.log(index);
+        arr.splice(index, 1);
+        event.target.parentElement.parentElement.removeChild(event.target.parentElement);
+        console.log(arr);
+        setLocalProjects(arr);
+    }
+}
+
+
+export {dropMenu, showProjects, showTasks, allTasks, todaysTasks, kk, updateProjects, removeTask, allProjects, removeProject};
