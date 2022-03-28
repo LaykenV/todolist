@@ -27,7 +27,7 @@ const showProjects = function(project, arr) {
     newDiv.appendChild(delBtn);
 }
 
-const allProjects = function(arr) {
+const allProjects = function(arr, arrT) {
     const projectList = document.querySelector(".projectselector");
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
@@ -45,6 +45,7 @@ const allProjects = function(arr) {
         newDiv.appendChild(newDivText);
         newDiv.appendChild(delBtn);
     }
+    kk(arrT);
 }
 
 const showTasks = function(taskk, arr) {
@@ -168,6 +169,7 @@ const updateProjects = function () {
 const kk = function (arr) {
     let projectItem = document.querySelectorAll(".projectlistitemtext");
     const taskList = document.querySelector(".tasklist");
+    console.log(projectItem);
     updateProjects();
     for (let i = 0; i < projectItem.length; i++) {
     console.log(projectItem[i]);
@@ -182,6 +184,7 @@ const kk = function (arr) {
                 
             }
             for (let i = 0; i < arr.length; i++) {
+                console.log("kkworking");
                 const element = arr[i];
                 if (element.description == pr) {
                     const taskList = document.querySelector(".tasklist");

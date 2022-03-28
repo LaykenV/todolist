@@ -46,11 +46,12 @@ function restoreLocalTasks() {
 };
 function restoreLocalProjects() {
     projects = JSON.parse(localStorage.getItem("Projects"));
+    console.log(projects);
     if (projects == null) {
         projects = [];
     }
     else {
-        allProjects(projects);
+        allProjects(projects, tasks);
         return projects = JSON.parse(localStorage.getItem("Projects"));
     }
     
