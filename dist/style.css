@@ -15,7 +15,7 @@ header {
     align-items: center;
     height: 10%;
     padding: .5rem;
-    background-color: aqua;
+    background-color: #daad86;
 }
 
 .headertext {
@@ -38,7 +38,7 @@ main {
 .dropdown {
     display: flex;
     flex-direction: column;
-    background-color: yellow;
+    background-color: #fbeec1;
     padding: .5rem;
 }
 
@@ -94,8 +94,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     gap: 1rem;
-    background-color: green;
+    background-color: #659dbd;
     flex-grow: 1;
     padding: .5rem;
 }
@@ -106,6 +107,7 @@ main {
     align-items: center;
     justify-content: flex-start;
     gap: .5rem;
+    width: 100%;
 }
 
 .task {
@@ -140,7 +142,7 @@ main {
 
 
 footer {
-    background-color: red;
+    background-color: #8d8741;
     height: 5%;
     display: flex;
     justify-content: center;
@@ -171,7 +173,7 @@ footer {
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    background-color: blueviolet;
+    background-color: #bc986a;
 }
 
 #addprojectform {
@@ -188,6 +190,31 @@ footer {
     gap: .4rem;
 }
 
+.projectlistitem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .4rem;
+}
+
+.projectlistitemtext {
+    font-size: large;
+    flex-grow: 1;
+}
+
 .gone {
     display: none !important;
+}
+
+@media only screen and (min-width: 800px) {
+    header {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+    .dropbutton {
+        width: 4rem;
+    }
+    #addtask, #addproject, #addprojectform {
+        width: 30%;
+    }
 }
