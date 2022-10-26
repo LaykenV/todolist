@@ -200,7 +200,7 @@ footer {
 .projectlistitemtext {
     font-size: large;
     flex-grow: 1;
-}
+};
 
 .gone {
     display: none !important;
